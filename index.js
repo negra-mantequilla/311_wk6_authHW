@@ -23,7 +23,7 @@ app.use(clientsRoutes)
 
 const port = process.env.PORT||8005
 
-app.get('/HELLO', (req, res)=>{
+app.get('/', (req, res)=>{
   res.json('Hello World')
 })
 
