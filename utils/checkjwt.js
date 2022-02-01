@@ -17,6 +17,7 @@ function checkJwt (req,res, next){
        res.status(401).send('your not authorized')
      } else {
        console.log(decoded);
+       req.user_id=decoded.user_id
        next()
      }
     })
