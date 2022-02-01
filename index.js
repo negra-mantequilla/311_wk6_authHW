@@ -25,7 +25,15 @@ const port = process.env.PORT||8005
 
 app.get('/', (req, res)=>{
   res.json('Hello World')
+  connection.query('Checking connection', function(err, rows, fields) {
+    if (err) throw err;
+
+    response.send('connection made');
+  });
 })
+
+
+
 
 
 app.listen(port, function(){
