@@ -6,7 +6,7 @@ function getClients(req,res){
   let sql = 'SELECT * FROM clients'
   connection.query(sql, function(err, rows){
       if (err){
-        console.log(err.sqlMessage)
+        console.log(err)
         res.status(500).send('Did not get rows')
       }
       res.json(rows)
