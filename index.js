@@ -1,4 +1,5 @@
 require("dotenv").config()
+const cors = require('cors')
 const {checkJwt} = require('./utils/checkjwt')
 
 const express = require('express')
@@ -15,7 +16,7 @@ const app = express()
 
 const connection = require('./SQL/connection')
 
-
+app.use(cors())
 app.use(express.json())
 app.use(userRoutes)
 app.use(clientsRoutes)
