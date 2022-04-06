@@ -17,6 +17,7 @@ const app = express()
 const connection = require('./SQL/connection')
 
 app.use(cors())
+app.options('*', cors())
 app.use(express.json())
 app.use(userRoutes)
 app.use(clientsRoutes)
