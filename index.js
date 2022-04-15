@@ -13,10 +13,10 @@ const app = express();
 
 const connection = require("./SQL/connection");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.options("*", cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(userRoutes);
 app.use(clientsRoutes);
