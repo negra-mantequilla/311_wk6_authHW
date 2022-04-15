@@ -1,22 +1,16 @@
 require("dotenv").config();
-const cors = require("cors");
-const { checkJwt } = require("./utils/checkjwt");
-
 const express = require("express");
+const cors = require("cors");
 
 const userRoutes = require("./routes/users");
 const clientsRoutes = require("./routes/clients");
-
-// const router = require('./routes/routes')
+const connection = require("./SQL/connection");
 
 const app = express();
 
-const connection = require("./SQL/connection");
-
-app.use(cors());
-app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use(userRoutes);
 app.use(clientsRoutes);
