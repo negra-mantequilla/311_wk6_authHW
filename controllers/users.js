@@ -47,9 +47,14 @@ async function login (req, res){
       return res.status(400).json('user name is not found')
     } if (results.length == 1){
       const hash = results[0].user_password
-      let good_password = await argon2.verify(hash, password)
+      let good_password
+      try {
+        good_password = await argon2.verify(hash, password)
+      } catch (error) {
+        console.log(error)
+        return res.status(500).json('Internal server error')
+      }
       if (good_password) {
-        console.log(results)
           const unsigned_token = {
             user_name : results[0].user_name,
             user_id : results[0].user_id
@@ -62,6 +67,7 @@ async function login (req, res){
         return res.json('password is not correct')
       }
     }
+    console.log('uhoh')
     res.sendStatus(500)
   })
 }
