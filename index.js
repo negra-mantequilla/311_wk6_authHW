@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const userRoutes = require("./routes/users");
 const clientsRoutes = require("./routes/clients");
+const clientUsers = require("./routes/clientUsers")
 const connection = require("./SQL/connection");
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use(userRoutes);
 app.use(clientsRoutes);
+app.use(clientUsers);
 
 const port = process.env.PORT || 8005;
 
