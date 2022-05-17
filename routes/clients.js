@@ -17,7 +17,7 @@ router.post('/createClient', clientsController.createNewClient)
 
 // edit client BIO (make sure to use PUT)
 
-router.put('/clientCode/:id', checkJwt,clientsController.assignMentorByClientCode)
+router.put('/clientCode/:clientId', checkJwt,clientsController.assignMentorByClientCode)
 
 
 
